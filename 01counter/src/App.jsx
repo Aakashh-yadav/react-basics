@@ -6,19 +6,17 @@ import "./App.css";
 function App() {
   let [counter, setcounter] = useState(0);
 
-  
   const Inc_val = () => {
-    if(counter==8)
-      {
-        alert("This value can't be more then this ");
-      }
+    if (counter == 20) {
+      alert("This value can't be more then this ");
+      return;
+    }
     setcounter(counter + 1);
   };
   const Dec_val = () => {
-    if(counter==-8)
-    {
+    if (counter == 0) {
       alert("This value can't be lesser then this");
-      setcounter()
+      return
     }
     setcounter(counter - 1);
   };
