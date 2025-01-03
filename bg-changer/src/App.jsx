@@ -10,7 +10,7 @@ function App() {
       style={{ backgroundColor: color }}
     >
       <div className="">
-        test
+        testie
       </div>
     </div>
   );
