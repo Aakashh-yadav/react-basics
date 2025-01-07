@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function App() {
   let [length, setlength] = useState(8);
@@ -7,7 +7,7 @@ function App() {
   let [password, setpassword] = useState("");
   let passwordgenerator = useCallback(() => {
     let pass = "";
-    
+
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numballowed) str += "0123456789";
     if (charallowed) str += "!@#$%^&*()_+-";
@@ -16,6 +16,16 @@ function App() {
     }
     setpassword(pass);
   }, [length, numballowed, charallowed, setpassword]);
+  const copy_ref = useRef(null);
+  const copytoclipboard = useCallback(() => {
+    //we can also select range of the selection with the help of
+    // copy_ref.current?.setSelectionRange(0, 5); this is the code from which i can select the disered lenght of prefered feild
+    // copy_ref.current?.setSelectionRange(0, {length}); this is the another way to select the whole length of the prefered feild
+    copy_ref.current?.select();
+    navigator.clipboard.writeText(password);
+    // alert('text copied')
+  }, [password, length]);
+
   useEffect(() => {
     passwordgenerator();
   }, [length, numballowed, charallowed, passwordgenerator]);
@@ -30,8 +40,12 @@ function App() {
             className="outline-none w-full py-1  "
             placeholder="password"
             readOnly
+            ref={copy_ref}
           />
-          <button className="outline-none text-white text-center bg-blue-600 text-md">
+          <button
+            className="outline-none text-white text-center bg-blue-600 text-md"
+            onClick={copytoclipboard}
+          >
             copy
           </button>
         </div>
