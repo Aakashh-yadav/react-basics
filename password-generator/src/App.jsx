@@ -24,7 +24,7 @@ function App() {
     copy_ref.current?.select();
     navigator.clipboard.writeText(password);
     // alert('text copied')
-  }, [password, length]);
+  }, [password]);
 
   useEffect(() => {
     passwordgenerator();
