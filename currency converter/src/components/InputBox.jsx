@@ -1,17 +1,17 @@
 import React from 'react'
 
 
+
 function InputBox({
-  label,
-  amount,
-  onAmountchange,
-  onCurrencyChange,
-  currencyOptions=[],
-  selectCurrency= "usd"
-  amountDisable=false,
-  currencyDisable=false
-  
-  className = "",
+    label,
+    amount,
+    onAmountchange,
+    onCurrencyChange,
+    currencyOptions = [],
+    selectCurrency = "usd",
+    amountDisable = false,
+    currencyDisable = false,
+    className = "",
 }) {
  
 
@@ -43,7 +43,7 @@ function InputBox({
                      {
                         currencyOptions.map((Currency)=>(
                             <option  key={Currency} value={Currency}>
-                                {/* please take the key carefully while looping the scroll */}
+                                {/* please take the key carefully while using loops in react  */}
                             {Currency}
                             </option>
                         ))
