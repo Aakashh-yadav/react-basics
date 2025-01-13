@@ -7,7 +7,7 @@ function useCurrencyinfo(currency) {
     useEffect(() => {
         const abortController = new AbortController();
 
-        fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_KkmM3ak32v2mliu6GV2CQnatLQ4x9nIfbf0oSj9k&currencies=EUR%2CUSD%2CCAD&base_currency=${currency}`, {
+        fetch(`http://data.fixer.io/api/latest?access_key=9cd5336d6156fea870a62d440d981b00&symbols=USD,EUR,CAD&base=EUR`, {
             signal: abortController.signal,
         })
             .then((res) => {
