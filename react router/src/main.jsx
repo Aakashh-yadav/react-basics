@@ -1,10 +1,49 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+
+import { RouterProvider,createBrowserRouter } from 'react-router-dom'
+import LinkLayout from './LinkLayout'
+import Home from './Components/Home/Home'
+import About from './Components/About/About'
+import Contact from './Components/Contact/ContactUs'
+import User from './Components/User/User'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element:<LinkLayout/>,
+    children: 
+    [
+      {
+        path: 'Home',
+        element: <Home/>
+      },
+      {
+      path:'about',
+      element:<About/>
+      },
+      {
+        path:'Contact',
+        element:<Contact/>
+      },
+      {
+        path:'user/:id',
+        element:<User/>
+      }
+      ,
+      {
+        path:'git'
+      }
+
+
+    ]
+    //we made this is use just in place of outlet on the place of outlet there will be home or about 
+  }
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+   <RouterProvider router={router}/>
   </StrictMode>,
 )
