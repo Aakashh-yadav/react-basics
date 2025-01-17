@@ -1,50 +1,47 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
-import { RouterProvider,createBrowserRouter } from 'react-router-dom'
-import LinkLayout from './LinkLayout'
-import Home from './Components/Home/Home'
-import About from './Components/About/About'
-import Contact from './Components/Contact/ContactUs'
-import User from './Components/User/User'
-import Github from './Components/Github'
-
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import LinkLayout from "./LinkLayout";
+import Home from "./Components/Home/Home";
+import About from "./Components/About/About";
+import Contact from "./Components/Contact/ContactUs";
+import User from "./Components/User/User";
+import Github,{github_info_loader} from "./Components/Github/Github";
 const router = createBrowserRouter([
   {
-    path: '/',
-    element:<LinkLayout/>,
-    children: 
-    [
+    path: "/",
+    element: <LinkLayout />,
+    children: [
       {
-        path: 'Home',
-        element: <Home/>
+        path: "Home",
+        element: <Home />,
       },
       {
-      path:'about',
-      element:<About/>
+        path: "about",
+        element: <About />,
       },
       {
-        path:'Contact',
-        element:<Contact/>
+        path: "Contact",
+        element: <Contact />,
       },
       {
-        path:'user/:id',
-        element:<User/>
+        path: "user/:id",
+        element: <User />,
       },
       {
-        path:'Github',
-        element:<Github/>
-      }
+        path: "Github",
+        element: <Github />,
+        loader: github_info_loader ,
+      },
+    ],
+    //we made this is use just in place of outlet on the place of outlet there will be home or about
+  },
+]);
 
-
-    ]
-    //we made this is use just in place of outlet on the place of outlet there will be home or about 
-  }
-])
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-   <RouterProvider router={router}/>
-  </StrictMode>,
-)
+    <RouterProvider router={router} />
+  </StrictMode>
+);
