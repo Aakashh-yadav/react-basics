@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import Profle from './Components/Login'
+import Login from './Components/Profle'
 import UserContextProvder from './context/UserContextProvider'
 
 function App() {
@@ -9,7 +9,9 @@ function App() {
 
   return (
     <UserContextProvder>
-        <h1>Hello Bhai kya haal hai</h1>
+        {/* <h1>Hello Bhai kya haal hai</h1> */}
+        <Profle/>
+        <Login/>
     </UserContextProvder>
   )
 }
