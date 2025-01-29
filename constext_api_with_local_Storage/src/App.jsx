@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { TodoContext, TodoProvider, useTodoContext } from "./Contexts/Index";
+import { useEffect } from "react";
 function App() {
   const[todos, setTodos] = useState([]);
   const addtodo = (title) => {
@@ -20,7 +21,8 @@ function App() {
         prevtodo.id === id ? { ...prevtodo, completed: !prevtodo.completed } : prevtodo
       )
     ); // This is an if and else condition to toggle the complete
-  };
+
+    };
   return (
     <TodoProvider value={{todos,addtodo, updateTodo, deleteTodo, toggleComplete}}>
       <div className="bg-[#172842] min-h-screen py-8">
