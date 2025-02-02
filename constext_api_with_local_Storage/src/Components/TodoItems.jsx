@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useTodoContext } from "../context/TodoContext";
+import { useTodoContext } from "../Contexts/TodoContext";
 
 function TodoItem({ todo }) {
   const [isTodoEditable, setIsTodoEditable] = React.useState(false);

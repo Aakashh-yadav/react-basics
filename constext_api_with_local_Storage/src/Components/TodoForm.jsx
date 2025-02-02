@@ -1,10 +1,13 @@
+import { useState } from 'react';
+import { useTodoContext } from '../contexts/TodoContext';
+
 function TodoForm() {
   const [title, setTitle] = useState("");
   const {addtodo} = useTodoContext();
   const addTodo = (e) => {
     e.preventDefault();
     if (!title) return;
-    addTodo({
+    addtodo({
       title,
       // / This is the newer way of writing title:title because the key and value are
       //  the same this is the shorter way of writing it./
